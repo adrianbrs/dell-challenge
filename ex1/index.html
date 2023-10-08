@@ -24,6 +24,10 @@
     <!-- Preload -->
     <link rel="modulepreload" href="index.js" />
     <link rel="modulepreload" href="components/filter-item/filter-item.js" />
+    <link
+      rel="modulepreload"
+      href="components/filter-item-form/filter-item-form.js"
+    />
     <link rel="modulepreload" href="components/icon/icon.js" />
   </head>
   <body>
@@ -69,7 +73,7 @@
               >Select a table from the dropdown menu:</label
             >
             <select class="form-select" id="table-selector-input">
-              <option>Example Table 1</option>
+              <!-- TABLE LIST -->
             </select>
           </div>
         </aside>
@@ -91,26 +95,13 @@
 
           <div class="row">
             <div class="col-12 col-md-6">
-              <form
+              <app-filter-item-form
                 id="filters-item-form"
-                class="input-group app-dash-filters-input"
-              >
-                <input
-                  type="text"
-                  id="filters-item-input"
-                  class="form-control"
-                  placeholder="Type a filter name..."
-                  aria-label="Name of the new filter"
-                  maxlength="256"
-                  required
-                />
-                <button class="btn btn-primary">
-                  <span class="visually-hidden"
-                    >Click to add the new filter</span
-                  >
-                  <app-icon name="plus"></app-icon>
-                </button>
-              </form>
+                data-placeholder="Type a filter name..."
+                data-aria-label="Name of the new filter"
+                data-maxlength="256"
+                data-target-list="#filters-item-list"
+              ></app-filter-item-form>
             </div>
           </div>
         </section>

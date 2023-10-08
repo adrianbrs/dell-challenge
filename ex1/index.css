@@ -71,6 +71,13 @@ body {
   --bs-btn-border-color: var(--app-color-black);
 }
 
+/* Filter item form */
+.app-filter-item-form button {
+  --bs-btn-bg: var(--app-color-light-blue-2);
+  --bs-btn-border-color: var(--app-color-light-blue-2);
+  --bs-btn-color: #ffffff;
+}
+
 /************************
  * Sections
  ************************/
@@ -92,12 +99,6 @@ body {
 
 .app-dash-filters {
   grid-area: filters;
-}
-
-.app-dash-filters-input .btn {
-  --bs-btn-bg: var(--app-color-light-blue-2);
-  --bs-btn-border-color: var(--app-color-light-blue-2);
-  --bs-btn-color: #ffffff;
 }
 
 .app-dash-data {

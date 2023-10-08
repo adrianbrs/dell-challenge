@@ -28,7 +28,7 @@ export class AppFilterItemElement extends HTMLElement {
     $(this)
       .find(".app-filter-item-remove")
       .on("click", () => {
-        $(this).trigger("remove", [this.value]);
+        $(this).trigger("close", [this.value]);
         $(this).remove();
       });
   }
