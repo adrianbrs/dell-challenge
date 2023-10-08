@@ -1,0 +1,116 @@
+:root {
+  --app-color-dark-blue: #027db8;
+  --app-color-light-blue: #e8f4fc;
+  --app-color-light-blue-2: #5ba2ff;
+  --app-color-blue: #027bff;
+  --app-color-black: #343a40;
+
+  --app-header-height: 78px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/************************
+ * Globals
+ ************************/
+
+/** Icons **/
+.app-icon {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+}
+
+/** Panels **/
+.app-panel {
+  background-color: var(--app-color-light-blue);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/** Header **/
+.app-header {
+  background-color: var(--app-color-dark-blue);
+  color: #ffffff;
+  height: var(--app-header-height);
+}
+
+/** Main content **/
+.app-main {
+  height: calc(100% - var(--app-header-height));
+}
+
+/************************
+ * Components
+ ************************/
+
+/** Filter item **/
+.app-filter-item {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: var(--app-color-blue);
+  color: #ffffff;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  max-width: 320px;
+}
+
+.app-filter-item-label {
+  font-size: 0.816rem;
+  font-weight: bold;
+  padding: 0 1rem;
+  flex: 1 1 auto;
+}
+
+.app-filter-item-remove {
+  --bs-btn-bg: var(--app-color-black);
+  --bs-btn-border-color: var(--app-color-black);
+}
+
+/************************
+ * Sections
+ ************************/
+
+/** Dashboard **/
+.app-dash {
+  display: grid;
+  grid-template:
+    "filters filters" 50%
+    "data data" 1fr
+    / 1fr;
+  gap: 0.5rem;
+  min-height: 350px;
+}
+
+.app-dash-sidenav {
+  grid-area: sidenav;
+}
+
+.app-dash-filters {
+  grid-area: filters;
+}
+
+.app-dash-filters-input .btn {
+  --bs-btn-bg: var(--app-color-light-blue-2);
+  --bs-btn-border-color: var(--app-color-light-blue-2);
+  --bs-btn-color: #ffffff;
+}
+
+.app-dash-data {
+  grid-area: data;
+}
+
+@media (min-width: 992px) {
+  .app-dash {
+    display: grid;
+    grid-template:
+      "sidenav filters filters" 50%
+      "sidenav data data" 1fr
+      / 20% 1fr;
+    gap: 0.5rem;
+  }
+}
