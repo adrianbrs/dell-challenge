@@ -14,6 +14,10 @@ You can use HTML, CSS, vanilla JavaScript, jQuery, Bootstrap or any other stylin
 
 <img src="docs/image3.png" alt="Screenshot of the page" width="auto" height="auto" />
 
+### Solution
+
+The complete solution can be found in the [ex1/ directory](ex1/).
+
 ### Questions
 
 1. How would you deploy this web page so that users can access it online? Talk about the infrastructure, the resources, and the technologies needed.\
@@ -24,7 +28,43 @@ You can use HTML, CSS, vanilla JavaScript, jQuery, Bootstrap or any other stylin
    **For improved overall page load performance and SEO, we could consider server-side rendering for dynamic content, along with the use of a bundler to add content hashes to static filenames. However, implementing these enhancements would also require a more robust infrastructure capable of running a web server with technologies like Node.js or PHP.**
 
 2. How would you modify the code in order to populate the dropdown menu with values coming from a database? Talk about possible database solutions, and how the backend can interact with the frontend.\
-   **ANSWER**
+   **To populate the dropdown with values from a database, we could add a REST API call, using the Fetch API or XMLHttpRequest (like the Axios library does) in the `loadTableList` function. We would also need to handle HTTP errors and loading state to provide a better user experience. And, of course, we would need a backend server for the REST API.**
+
+   **Example:**
+
+   ```js
+   // index.js > loadTableList [Line 36]
+
+   // Load available table names
+   setTableLoading(true);
+   const $options = await fetch("/api/tables")
+     .then((res) => res.json())
+     .then((data) => {
+       return data.map((item) => {
+         const $option = $("<option></option>");
+         $option.attr("value", item.id);
+         $option.text(item.name);
+
+         return $option;
+       });
+     })
+     .catch((err) => {
+       // Display a friendly error message instead of a simple alert
+       alert("Error loading table list");
+       throw err;
+     })
+     .finally(() => {
+       setTableLoading(false);
+     });
+   ```
+
+   **There are several database solutions available, each being suitable to specific requirements and data characteristics. For structured data with a well-defined schema that can be neatly organized into tables with rows and columns, we could use relational databases like PostgreSQL and MySQL. These are particularly suitable when complex queries involving multiple relationships between tables are necessary.**
+
+   **On the other hand, if the data is unstructured or semi-structured (e.g., JSON or XML) and its structure changes frequently, or if we need horizontal scaling to handle high data volume and traffic, non-relational databases (NoSQL) like MongoDB or DynamoDB provide the flexibility required. In some cases, we could also use both SQL and NoSQL databases together, or use JSON columns in relational databases such as PostgreSQL to merge unstructured data.**
+
+   **The backend can interact with the frontend in various ways, depending on the application's requirements. The most common method is through HTTP calls, enabling data querying and manipulation via a REST API. This approach can be complemented with server-side rendering, where dynamic content is pre-rendered in HTML. We can also use technologies like GraphQL for flexible data querying or WebSockets for real-time communication.**
+
+   **In the case of this web page, as it is a static website and does not have server-side rendering, we can use a REST or GraphQL API to load and manipulate the data, and if the exchange of information in real time is necessary, we could use WebSocket because the WebSocket client runs in the browser via JavaScript. But we would need another server to serve as the backend for our web page, and that server would require a more robust infrastructure to implement a REST or GraphQL API, as well as a WebSocket server to handle client connections if necessary.**
 
 ## Exercise 2
 
