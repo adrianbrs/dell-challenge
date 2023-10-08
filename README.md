@@ -17,7 +17,11 @@ You can use HTML, CSS, vanilla JavaScript, jQuery, Bootstrap or any other stylin
 ### Questions
 
 1. How would you deploy this web page so that users can access it online? Talk about the infrastructure, the resources, and the technologies needed.\
-   **ANSWER**
+   **This webpage is designed for deployment on static website hosting. Since we don't rely on server-side rendering technologies like PHP, JSP, or Node.js, hosting it on a Content Delivery Network (CDN) is sufficient. The CDN serves static files to clients with the necessary headers. Any dynamic content is fetched through API calls from the client.**
+
+   **However, it's important to note that we don't include file content hashes in our filenames. This limits our ability to implement strong, long-term caching on the client side. To mitigate this, depending on the hosting service, we can configure cache headers using techniques like ETags or last modified dates. This ensures that clients may still make requests for content, but the server can choose to respond with a 'not modified' status and let the client use its locally cached version.**
+
+   **For improved overall page load performance and SEO, we could consider server-side rendering for dynamic content, along with the use of a bundler to add content hashes to static filenames. However, implementing these enhancements would also require a more robust infrastructure capable of running a web server with technologies like Node.js or PHP.**
 
 2. How would you modify the code in order to populate the dropdown menu with values coming from a database? Talk about possible database solutions, and how the backend can interact with the frontend.\
    **ANSWER**
