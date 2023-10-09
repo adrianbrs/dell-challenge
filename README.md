@@ -131,6 +131,10 @@ On the X axis should be the Ticker symbol and on the Y axis the Previous Close v
 
 <img src="docs/image1.png" alt="Dataframe plot example" width="auto" height="auto" />
 
+### Solution
+
+The complete solution can be found in the [ex3/ directory](ex3/).
+
 ### Questions
 
 1. If the Wikipedia table was lazy loaded, and only appeared after a few seconds from opening the page, what libraries and strategies could you adopt to get the data?\
