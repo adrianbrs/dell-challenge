@@ -89,6 +89,10 @@ The dataframe should look like this:
 
 then connect to a hypothetical Postgres Database and load the dataframe to a new table, in REPLACE mode.
 
+### Solution
+
+The complete solution can be found in the [ex2/ directory](ex2/).
+
 ### Questions
 
 1. If you didn’t know the structure of the JSON, and there was an arbitrary level of nesting of arrays and dictionaries, how would you need to change the code to dynamically unnest the data into a single-indexed dataframe?\
